@@ -44,20 +44,4 @@ describe 'Initialisation command' do
       bitmap_editor.run('I 5 2')
     end
   end
-
-  describe 'I 4 7' do
-    it 'creates a 4 x 7 image with all pixels painted white' do
-      expect(image).to receive(:create).with(width: 4, height: 7)
-
-      bitmap_editor.run('I 4 7')
-    end
-  end
-
-  describe 'I 8 8' do
-    it 'creates a 8 x 8 image with all pixels painted white' do
-      expect(image).to receive(:create).with(width: 8, height: 8)
-
-      bitmap_editor.run('I 8 8')
-    end
-  end
 end
