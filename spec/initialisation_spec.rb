@@ -6,7 +6,7 @@ describe 'Initialisation command' do
 
     def run(command)
       width = command.split(' ')[1].to_i.abs
-      height = command.split(' ')[2].to_i
+      height = command.split(' ')[2].to_i.abs
       @image.create(width: width, height: height)
     end
   end
@@ -50,6 +50,14 @@ describe 'Initialisation command' do
       expect(image).to receive(:create).with(width: 6, height: 10)
 
       bitmap_editor.run('I -6 10')
+    end
+  end
+
+  describe 'I 3 -9' do
+    it 'creates a 3 x 9 image with all pixels painted white' do
+      expect(image).to receive(:create).with(width: 3, height: 9)
+
+      bitmap_editor.run('I 3 -9')
     end
   end
 end
