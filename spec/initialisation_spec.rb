@@ -6,7 +6,8 @@ describe 'Initialisation command' do
       end
 
       def run(command)
-        @image.create(width: 0, height: 0)
+        width = command.split(' ')[1].to_i
+        @image.create(width: width, height: 0)
       end
     end
     it 'creates a 0 x 0 image with all pixels painted white' do
@@ -18,7 +19,12 @@ describe 'Initialisation command' do
   end
 
   describe 'I 1 0' do
-    it 'creates a 1 x 0 image with all pixels painted white'
+    it 'creates a 1 x 0 image with all pixels painted white' do
+      image = double(:image)
+      expect(image).to receive(:create).with(width: 1, height: 0)
+
+      BitmapEditor.new(image).run 'I 1 0'
+    end
   end
 
   describe 'I 0 1' do
