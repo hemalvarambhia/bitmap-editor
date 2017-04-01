@@ -38,7 +38,11 @@ describe 'Initialisation command' do
   end
 
   describe 'I 5 2' do
-    it 'creates a 5 x 2 image with all pixels painted white'
+    it 'creates a 5 x 2 image with all pixels painted white' do
+      expect(image).to receive(:create).with(width: 5, height: 2)
+
+      bitmap_editor.run('I 5 2')
+    end
   end
 
   describe 'I 4 7' do
