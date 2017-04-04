@@ -1,6 +1,14 @@
+require 'ostruct'
+require_relative '../app/bitmap_editor'
 describe 'Painting a pixel' do
   describe 'L 1 1 A' do
-    it "paints co-ordinate (1, 1) the colour 'A'"
+    it "paints co-ordinate (1, 1) the colour 'A'" do
+      bitmap_image = double(:image)
+      coordinate = OpenStruct.new(x: 1, y: 1)
+      expect(bitmap_image).to receive(:paint_pixel).with(coordinate: coordinate, colour: 'A')
+
+      BitmapEditor.new(bitmap_image).run('L 1 1 A')
+    end
   end
 
   describe 'L 1 2 A' do
