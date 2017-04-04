@@ -10,7 +10,8 @@ class BitmapEditor
       height = command.split(' ')[2].to_i.abs
       @image.create(width: width, height: height)
     when 'L'
-      @image.paint_pixel(coordinate: OpenStruct.new(x: 1, y: 1), colour: 'A')
+      y = command.split(' ')[2].to_i
+      @image.paint_pixel(coordinate: OpenStruct.new(x: 1, y: y), colour: 'A')
     end  
   end
 end
