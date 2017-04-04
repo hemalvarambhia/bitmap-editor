@@ -1,15 +1,11 @@
 class BitmapEditor
-  def run(file)
-    return puts "please provide correct file" if file.nil? || !File.exists?(file)
+  def initialize(image)
+    @image = image
+  end
 
-    File.open(file).each do |line|
-      line = line.chomp
-      case line
-      when 'S'
-          puts "There is no image"
-      else
-          puts 'unrecognised command :('
-      end
-    end
+  def run(command)
+    width = command.split(' ')[1].to_i.abs
+    height = command.split(' ')[2].to_i.abs
+    @image.create(width: width, height: height)
   end
 end

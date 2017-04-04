@@ -1,18 +1,8 @@
+require_relative '../app/bitmap_editor'
 describe 'Initialisation command' do
-  class BitmapEditor
-    def initialize(image)
-      @image = image
-    end
-
-    def run(command)
-      width = command.split(' ')[1].to_i.abs
-      height = command.split(' ')[2].to_i.abs
-      @image.create(width: width, height: height)
-    end
-  end
-
   let(:image) { double(:image) }
   let(:bitmap_editor) { BitmapEditor.new(image) }
+
   describe 'I 0 0' do
     it 'creates a 0 x 0 image with all pixels painted white' do
       expect(image).to receive(:create).with(width: 0, height: 0)
