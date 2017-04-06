@@ -22,7 +22,13 @@ describe 'Painting a pixel' do
   end
 
   describe 'L 3 5 A' do
-    it "paints co-ordinate (3, 5) the colour 'A'"
+    it "paints co-ordinate (3, 5) the colour 'A'" do
+      bitmap_image = double(:image)
+      coordinate = OpenStruct.new(x: 3, y: 5)
+      expect(bitmap_image).to receive(:paint_pixel).with(coordinate: coordinate, colour: 'A')#
+
+      BitmapEditor.new(bitmap_image).run('L 3 5 A')
+    end
   end
 
   describe 'L 6 7 X' do
