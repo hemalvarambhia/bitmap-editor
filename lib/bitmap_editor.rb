@@ -13,7 +13,7 @@ class BitmapEditor
     when 'L'
       x = args[0].to_i
       y = args[1].to_i
-      colour = args[2]
+      colour = args[2].upcase
       @image.paint_pixel(coordinate: OpenStruct.new(x: x, y: y), colour: colour)
     end  
   end
