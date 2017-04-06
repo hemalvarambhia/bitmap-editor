@@ -11,7 +11,8 @@ class BitmapEditor
     when 'L'
       x = command.split(' ')[1].to_i
       y = command.split(' ')[2].to_i
-      @image.paint_pixel(coordinate: OpenStruct.new(x: x, y: y), colour: 'A')
+      colour = command.split(' ')[3]
+      @image.paint_pixel(coordinate: OpenStruct.new(x: x, y: y), colour: colour)
     end  
   end
 end
