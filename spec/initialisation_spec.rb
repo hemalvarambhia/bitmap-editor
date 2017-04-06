@@ -1,4 +1,4 @@
-require_relative '../app/bitmap_editor'
+require_relative '../lib/bitmap_editor'
 describe 'Initialisation command' do
   let(:image) { double(:image) }
   let(:bitmap_editor) { BitmapEditor.new(image) }

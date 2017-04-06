@@ -1,5 +1,5 @@
 require 'ostruct'
-require_relative '../app/bitmap_editor'
+require_relative '../lib/bitmap_editor'
 describe 'Painting a pixel' do
   describe 'L 1 1 A' do
     it "paints co-ordinate (1, 1) the colour 'A'" do
