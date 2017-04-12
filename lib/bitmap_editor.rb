@@ -15,6 +15,10 @@ class BitmapEditor
       y = args[1].to_i.abs
       colour = args[2].upcase
       @image.paint_pixel(coordinate: OpenStruct.new(x: x, y: y), colour: colour)
+    when 'H'
+      from = OpenStruct.new(x: 1, y: 1)
+      to = OpenStruct.new(x: 1, y: 1)
+      @image.paint_horizontal_line(from: from, to: to, colour: 'I')
     end  
   end
 end

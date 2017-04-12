@@ -1,5 +1,15 @@
+require 'ostruct'
+require 'bitmap_editor'
 describe 'H 1 1 1 I' do
-  it 'paints a pixel at (1, 1) the colour I'
+  it 'paints a pixel at (1, 1) the colour I' do
+    image = double(:image)
+    expect(image).to(receive(:paint_horizontal_line).with(
+                      from: OpenStruct.new(x: 1, y: 1),
+                      to: OpenStruct.new(x: 1, y: 1),
+                      colour: 'I'))
+
+    BitmapEditor.new(image).run('H 1 1 1 I')
+  end
 end
 
 describe 'H 1 3 1 I' do
