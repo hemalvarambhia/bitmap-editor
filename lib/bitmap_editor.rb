@@ -32,8 +32,9 @@ class BitmapEditor
   end
 
   def paint_horizontal_line(args)
-    from_x = args[0].to_i
-    to_x = args[1].to_i
+    range = args[0..1].map(&:to_i).sort
+    from_x = range.first
+    to_x = range.last
     y = args[2].to_i
     colour = args[3]
     from = OpenStruct.new(x: from_x, y: y)

@@ -61,4 +61,16 @@ describe 'Painting a horizontal line' do
       bitmap_editor.run('H 4 8 3 J')
     end
   end
+
+  describe 'H 7 3 2 B' do
+    it "paints a horizontal line from (3, 2) to (7, 2) the colour 'B'" do
+      expect(image).to receive(:paint_horizontal_line).with(
+                         from: OpenStruct.new(x: 3, y: 2),
+                         to: OpenStruct.new(x: 7, y: 2),
+                         colour: 'B'
+                       )
+
+      bitmap_editor.run('H 7 3 2 B')
+    end
+  end
 end
