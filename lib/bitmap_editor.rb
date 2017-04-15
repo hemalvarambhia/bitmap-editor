@@ -32,7 +32,7 @@ class BitmapEditor
   end
 
   def paint_horizontal_line(args)
-    range = args[0..1].map(&:to_i).sort
+    range = args[0..1].map(&:to_i).map(&:abs).sort
     from_x = range.first
     to_x = range.last
     y = args[2].to_i
