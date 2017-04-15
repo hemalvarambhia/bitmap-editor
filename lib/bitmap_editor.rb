@@ -7,20 +7,32 @@ class BitmapEditor
     type, *args = command.split(' ')
     case type
     when 'I'
-      width = args[0].to_i.abs
-      height = args[1].to_i.abs
-      @image.create(width: width, height: height)
+      create_image(args)
     when 'L'
-      x = args[0].to_i.abs
-      y = args[1].to_i.abs
-      colour = args[2].upcase
-      @image.paint_pixel(coordinate: OpenStruct.new(x: x, y: y), colour: colour)
+      paint_pixel(args)
     when 'H'
-      from_x = args[0].to_i
-      to_x = args[1].to_i
-      from = OpenStruct.new(x: from_x, y: 1)
-      to = OpenStruct.new(x: to_x, y: 1)
-      @image.paint_horizontal_line(from: from, to: to, colour: 'I')
+      paint_horizontal_line(args)
     end  
+  end
+
+  def create_image(args)
+    width = args[0].to_i.abs
+    height = args[1].to_i.abs
+    @image.create(width: width, height: height)
+  end
+
+  def paint_pixel(args)
+    x = args[0].to_i.abs
+    y = args[1].to_i.abs
+    colour = args[2].upcase
+    @image.paint_pixel(coordinate: OpenStruct.new(x: x, y: y), colour: colour)
+  end
+
+  def paint_horizontal_line(args)
+    from_x = args[0].to_i
+    to_x = args[1].to_i
+    from = OpenStruct.new(x: from_x, y: 1)
+    to = OpenStruct.new(x: to_x, y: 1)
+    @image.paint_horizontal_line(from: from, to: to, colour: 'I')
   end
 end
