@@ -27,7 +27,8 @@ class BitmapEditor
     x = args[0].to_i.abs
     y = args[1].to_i.abs
     colour = args[2].upcase
-    @image.paint_pixel(coordinate: OpenStruct.new(x: x, y: y), colour: colour)
+    point = OpenStruct.new(x: x, y: y)
+    @image.paint_pixel(coordinate: point, colour: colour)
   end
 
   def paint_horizontal_line(args)
