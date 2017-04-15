@@ -15,6 +15,8 @@ class BitmapEditor
     end  
   end
 
+  private
+
   def create_image(args)
     width = args[0].to_i.abs
     height = args[1].to_i.abs
