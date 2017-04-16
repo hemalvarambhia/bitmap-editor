@@ -35,7 +35,7 @@ class BitmapEditor
     range = args[0..1].map(&:to_i).map(&:abs).sort
     from_x = range.first
     to_x = range.last
-    y = args[2].to_i
+    y = args[2].to_i.abs
     colour = args[3]
     from = OpenStruct.new(x: from_x, y: y)
     to = OpenStruct.new(x: to_x, y: y)
