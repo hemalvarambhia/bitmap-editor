@@ -118,4 +118,16 @@ describe 'Painting a horizontal line' do
       bitmap_editor.run('H 2 3 4 G')
     end
   end
+
+  describe 'H 1 251 4 A' do
+    it 'paints a horizontal line from (1, 4) to (251, 4)'
+  end
+
+  describe 'H 0 10 3 Z' do
+    it 'paints a horizontal line form (0, 3) to (10, 3)'
+  end
+
+  describe 'H 1 2 3 4' do
+    it 'paints a horizontal line the colour 4'
+  end
 end
