@@ -37,8 +37,7 @@ class BitmapEditor
     to_x = range.last
     y = args[2].to_i.abs
     colour = args[3]
-    from = OpenStruct.new(x: from_x, y: y)
-    to = OpenStruct.new(x: to_x, y: y)
-    @image.paint_horizontal_line(from: from, to: to, colour: colour)
+    line = from_x.upto(to_x).map { |x| OpenStruct.new(x: x, y: y) }
+    @image.paint_line(line, colour)
   end
 end
