@@ -1,4 +1,4 @@
-require_relative '../lib/bitmap_editor'
+require 'bitmap_editor'
 describe 'Initialisation command' do
   let(:image) { double(:image) }
   let(:bitmap_editor) { BitmapEditor.new(image) }
@@ -48,6 +48,14 @@ describe 'Initialisation command' do
       expect(image).to receive(:create).with(width: 3, height: 9)
 
       bitmap_editor.run('I 3 -9')
+    end
+  end
+
+  describe 'i 4 4' do
+    it 'creates a 4 x 4 image with all pixels painted white' do
+      expect(image).to receive(:create).with(width: 4, height: 4)
+
+      bitmap_editor.run('i 4 4')
     end
   end
 end

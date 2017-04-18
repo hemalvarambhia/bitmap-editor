@@ -4,7 +4,7 @@ class BitmapEditor
   end
 
   def run(command)
-    type, *args = command.split(' ')
+    type, *args = command.upcase.split(' ')
     case type
     when 'I'
       create_image(args)
