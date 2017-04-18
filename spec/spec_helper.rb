@@ -1,0 +1,1 @@
+require 'bitmap_editor'

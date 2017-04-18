@@ -16,7 +16,9 @@ describe 'Painting a horizontal line' do
   describe 'H 1 3 1 I' do
     it "paints a horizontal line from (1, 1) to (3, 1) the colour 'I'" do
       line = [
-        OpenStruct.new(x: 1, y: 1), OpenStruct.new(x: 2, y: 1), OpenStruct.new(x: 3, y: 1) ]
+        OpenStruct.new(x: 1, y: 1), 
+        OpenStruct.new(x: 2, y: 1), 
+        OpenStruct.new(x: 3, y: 1) ]
       expect(image).to(
         receive(:paint_line).with(line, 'I'))
 
@@ -27,7 +29,9 @@ describe 'Painting a horizontal line' do
   describe 'H 3 5 1 I' do
     it "paints a horizontal line from (3, 1) to (5, 1) the colour 'I'" do
       line = [
-        OpenStruct.new(x: 3, y: 1), OpenStruct.new(x: 4, y: 1), OpenStruct.new(x: 5, y: 1) ]
+        OpenStruct.new(x: 3, y: 1), 
+        OpenStruct.new(x: 4, y: 1), 
+        OpenStruct.new(x: 5, y: 1) ]
       expect(image).to receive(:paint_line).with(line, 'I')
 
       bitmap_editor.run('H 3 5 1 I')
@@ -37,7 +41,9 @@ describe 'Painting a horizontal line' do
   describe 'H 3 5 7 I' do
     it "paints a horizontal line from (3, 7) to (5, 7) the colour 'I'" do
       line = [
-        OpenStruct.new(x: 3, y: 7), OpenStruct.new(x: 4, y: 7), OpenStruct.new(x: 5, y: 7)
+        OpenStruct.new(x: 3, y: 7), 
+        OpenStruct.new(x: 4, y: 7), 
+        OpenStruct.new(x: 5, y: 7)
       ]
       expect(image).to receive(:paint_line).with(line, 'I')
 
@@ -56,8 +62,9 @@ describe 'Painting a horizontal line' do
   describe 'H 7 3 2 B' do
     it "paints a horizontal line from (3, 2) to (7, 2)" do
       line = [
-        OpenStruct.new(x: 3, y: 2), OpenStruct.new(x: 4, y: 2), OpenStruct.new(x: 5, y: 2),
-        OpenStruct.new(x: 6, y: 2), OpenStruct.new(x: 7, y: 2)      
+        OpenStruct.new(x: 3, y: 2), OpenStruct.new(x: 4, y: 2), 
+        OpenStruct.new(x: 5, y: 2), OpenStruct.new(x: 6, y: 2), 
+        OpenStruct.new(x: 7, y: 2)      
       ]
       expect(image).to receive(:paint_line).with(line, any_args)
 
