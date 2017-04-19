@@ -111,9 +111,7 @@ describe 'Painting a horizontal line' do
 
   describe 'H 2 3 4 g' do
     it "paints the horizontal line the colour G" do
-      pending
-      expect(image).to receive(:paint_horizontal_line)
-                        .with(a_hash_including(colour: 'G'))
+      expect(image).to receive(:paint_line).with(any_args, 'G')
 
       bitmap_editor.run('H 2 3 4 G')
     end
