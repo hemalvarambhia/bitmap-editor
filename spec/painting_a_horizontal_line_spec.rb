@@ -99,9 +99,7 @@ describe 'Painting a horizontal line' do
 
   describe 'H 1 2 -3 P' do
     it "paints a horizontal line from (1, 3) to (2, 3)" do
-      line = [
-        OpenStruct.new(x: 1, y: 3), OpenStruct.new(x: 2, y: 3)
-      ]
+      line = [ OpenStruct.new(x: 1, y: 3), OpenStruct.new(x: 2, y: 3) ]
       expect(image).to(
         receive(:paint_line).with(array_including(line), any_args))
 
