@@ -72,16 +72,18 @@ describe 'Painting a horizontal line' do
     end
   end
 
-  describe 'H -7 1 7 C' do
-    it "paints a horizontal line from (1, 7) to (7, 7)" do
-      pending
-      expect(image).to receive(:paint_horizontal_line)
-                        .with(a_hash_including(
-                                from: OpenStruct.new(x: 1, y: 7),
-                                to: OpenStruct.new(x: 7, y: 7))
-                             )
+  describe 'H -4 1 7 C' do
+    it "paints a horizontal line from (1, 7) to (4, 7)" do
+      line = [
+        OpenStruct.new(x: 2, y: 7),
+        OpenStruct.new(x: 3, y: 7),
+        OpenStruct.new(x: 4, y: 7)
+      ]
+      expect(image).to receive(:paint_line)
+                        .with(array_including(line), any_args)
 
-      bitmap_editor.run('H -7 1 7 C')
+
+      bitmap_editor.run('H -4 1 7 C')
     end
   end
 
