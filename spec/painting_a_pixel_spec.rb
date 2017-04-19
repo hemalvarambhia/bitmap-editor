@@ -1,5 +1,5 @@
 require 'ostruct'
-require_relative '../lib/bitmap_editor'
+require 'spec_helper'
 describe 'Painting a pixel' do
   let(:bitmap_image) { double(:image) }
   let(:bitmap_editor) { BitmapEditor.new(bitmap_image) }

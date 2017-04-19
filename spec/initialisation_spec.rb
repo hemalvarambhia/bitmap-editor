@@ -1,4 +1,4 @@
-require 'bitmap_editor'
+require 'spec_helper'
 describe 'Initialisation command' do
   let(:image) { double(:image) }
   let(:bitmap_editor) { BitmapEditor.new(image) }

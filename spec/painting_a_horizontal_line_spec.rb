@@ -1,5 +1,5 @@
 require 'ostruct'
-require 'bitmap_editor'
+require 'spec_helper'
 describe 'Painting a horizontal line' do
   let(:image) { double(:image) }
   let(:bitmap_editor) { BitmapEditor.new(image) }
