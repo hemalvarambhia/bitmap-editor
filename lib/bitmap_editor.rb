@@ -13,7 +13,8 @@ class BitmapEditor
     when 'H'
       paint_horizontal_line(args)
     when 'V'
-      @image.paint_line([ OpenStruct.new(x: 1, y: 1) ], 'X')
+      x = args[0].to_i
+      @image.paint_line([ OpenStruct.new(x: x, y: 1) ], 'X')
     end  
   end
 
