@@ -34,9 +34,7 @@ class BitmapEditor
   end
 
   def paint_horizontal_line(args)
-    range = args[0..1].map(&:to_i).map(&:abs).sort
-    from_x = range.first
-    to_x = range.last
+    from_x, to_x = args[0..1].map(&:to_i).map(&:abs).sort
     y = args[2].to_i.abs
     colour = args[3]
     line = from_x.upto(to_x).map { |x| OpenStruct.new(x: x, y: y) }
@@ -44,9 +42,7 @@ class BitmapEditor
   end
 
   def paint_vertical_line(args)
-    range = args[1..2].map(&:to_i).map(&:abs).sort
-    from_y = range.first
-    to_y = range.last
+    from_y, to_y = args[1..2].map(&:to_i).map(&:abs).sort
     x = args[0].to_i
     line = from_y.upto(to_y).map { |y| OpenStruct.new(x: x, y: y) }
     @image.paint_line(line, 'X')
