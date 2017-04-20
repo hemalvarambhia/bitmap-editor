@@ -24,11 +24,20 @@ describe 'Painting a vertical line' do
   end
 
   describe 'V 1 3 3 X' do
-    it "paints a vertical line from (1, 3) the colour 'X'" do
+    it "paints a pixel at (1, 3) the colour 'X'" do
       line = [ coordinate(1, 3) ]
       expect(image).to receive(:paint_line).with(line, 'X')
 
       bitmap_editor.run('V 1 3 3 X')
+    end
+  end
+
+  describe 'V 3 1 3 X' do
+    it "paints a vertical line from (3, 1) to (3, 3) the colour 'X'" do
+      line = [ coordinate(3, 1), coordinate(3, 2), coordinate(3, 3) ]
+      expect(image).to receive(:paint_line).with(line, 'X')
+
+      bitmap_editor.run('V 3 1 3 X')
     end
   end
 
