@@ -6,7 +6,7 @@ describe 'Painting a horizontal line' do
   
   describe 'H 1 1 1 I' do
     it "paints a pixel at (1, 1) the colour 'I'" do
-      line = [ OpenStruct.new(x: 1, y: 1) ]
+      line = [ coordinate(1, 1) ]
       expect(image).to(receive(:paint_line).with(line, 'I'))
 
       bitmap_editor.run('H 1 1 1 I')
@@ -15,10 +15,7 @@ describe 'Painting a horizontal line' do
 
   describe 'H 1 3 1 I' do
     it "paints a horizontal line from (1, 1) to (3, 1) the colour 'I'" do
-      line = [
-        OpenStruct.new(x: 1, y: 1), 
-        OpenStruct.new(x: 2, y: 1), 
-        OpenStruct.new(x: 3, y: 1) ]
+      line = [ coordinate(1, 1), coordinate(2, 1), coordinate(3, 1) ]
       expect(image).to(
         receive(:paint_line).with(line, 'I'))
 
@@ -28,10 +25,7 @@ describe 'Painting a horizontal line' do
 
   describe 'H 3 5 1 I' do
     it "paints a horizontal line from (3, 1) to (5, 1) the colour 'I'" do
-      line = [
-        OpenStruct.new(x: 3, y: 1), 
-        OpenStruct.new(x: 4, y: 1), 
-        OpenStruct.new(x: 5, y: 1) ]
+      line = [ coordinate(3, 1), coordinate(4, 1), coordinate(5, 1) ]
       expect(image).to receive(:paint_line).with(line, 'I')
 
       bitmap_editor.run('H 3 5 1 I')
@@ -40,11 +34,7 @@ describe 'Painting a horizontal line' do
 
   describe 'H 3 5 7 I' do
     it "paints a horizontal line from (3, 7) to (5, 7) the colour 'I'" do
-      line = [
-        OpenStruct.new(x: 3, y: 7), 
-        OpenStruct.new(x: 4, y: 7), 
-        OpenStruct.new(x: 5, y: 7)
-      ]
+      line = [ coordinate(3, 7), coordinate(4, 7), coordinate(5, 7) ]
       expect(image).to receive(:paint_line).with(line, 'I')
 
       bitmap_editor.run('H 3 5 7 I')
@@ -62,9 +52,8 @@ describe 'Painting a horizontal line' do
   describe 'H 7 3 2 B' do
     it "paints a horizontal line from (3, 2) to (7, 2)" do
       line = [
-        OpenStruct.new(x: 3, y: 2), OpenStruct.new(x: 4, y: 2), 
-        OpenStruct.new(x: 5, y: 2), OpenStruct.new(x: 6, y: 2), 
-        OpenStruct.new(x: 7, y: 2)      
+        coordinate(3, 2), coordinate(4, 2), coordinate(5, 2), coordinate(6, 2), 
+        coordinate(7, 2)      
       ]
       expect(image).to receive(:paint_line).with(line, any_args)
 
@@ -75,9 +64,9 @@ describe 'Painting a horizontal line' do
   describe 'H -4 1 7 C' do
     it "paints a horizontal line from (1, 7) to (4, 7)" do
       line = [
-        OpenStruct.new(x: 2, y: 7),
-        OpenStruct.new(x: 3, y: 7),
-        OpenStruct.new(x: 4, y: 7)
+        coordinate(2, 7),
+        coordinate(3, 7),
+        coordinate(4, 7)
       ]
       expect(image).to receive(:paint_line)
                         .with(array_including(line), any_args)
@@ -91,7 +80,7 @@ describe 'Painting a horizontal line' do
     it "paints a horizontal line from (3, 2) to (7, 2)" do
       expect(image)
         .to receive(:paint_line)
-             .with(array_including(OpenStruct.new(x: 7, y: 2)), any_args)
+             .with(array_including(coordinate(7, 2)), any_args)
 
       bitmap_editor.run('H 3 -7 2 D')
     end
@@ -99,7 +88,7 @@ describe 'Painting a horizontal line' do
 
   describe 'H 1 2 -3 P' do
     it "paints a horizontal line from (1, 3) to (2, 3)" do
-      line = [ OpenStruct.new(x: 1, y: 3), OpenStruct.new(x: 2, y: 3) ]
+      line = [ coordinate(1, 3), coordinate(2, 3) ]
       expect(image).to(
         receive(:paint_line).with(array_including(line), any_args))
 
@@ -133,5 +122,11 @@ describe 'Painting a horizontal line' do
 
   describe 'H 1 2 3 4' do
     it 'paints a horizontal line the colour 4'
+  end
+
+  private
+
+  def coordinate(x, y)
+    OpenStruct.new(x: x, y: y)
   end
 end
