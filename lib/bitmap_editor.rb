@@ -44,9 +44,10 @@ class BitmapEditor
   end
 
   def paint_vertical_line(args)
+    range = args[1..2].map(&:to_i).map(&:abs).sort
+    from_y = range.first
+    to_y = range.last
     x = args[0].to_i
-    from_y = args[1].to_i
-    to_y = args[2].to_i
     line = from_y.upto(to_y).map { |y| OpenStruct.new(x: x, y: y) }
     @image.paint_line(line, 'X')
   end
