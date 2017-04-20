@@ -7,7 +7,7 @@ describe 'Painting a vertical line' do
 
   describe 'V 1 1 1 X' do
     it "paints a pixel at (1, 1) the colour 'X'" do
-      line = [ OpenStruct.new(x: 1, y: 1) ]
+      line = [ coordinate(1, 1) ]
       expect(image).to receive(:paint_line).with(line, 'X')
 
       bitmap_editor.run('V 1 1 1 X')
@@ -16,7 +16,7 @@ describe 'Painting a vertical line' do
 
   describe 'V 2 1 1 X' do
     it "paints a pixel at (2, 1) the colour 'X'" do
-      line = [ OpenStruct.new(x: 2, y: 1) ]
+      line = [ coordinate(2, 1) ]
       expect(image).to receive(:paint_line).with(line, 'X')
 
       bitmap_editor.run('V 2 1 1 X')
@@ -25,10 +25,16 @@ describe 'Painting a vertical line' do
 
   describe 'V 1 3 3 X' do
     it "paints a vertical line from (1, 3) the colour 'X'" do
-      line = [ OpenStruct.new(x: 1, y: 3) ]
+      line = [ coordinate(1, 3) ]
       expect(image).to receive(:paint_line).with(line, 'X')
 
       bitmap_editor.run('V 1 3 3 X')
     end
+  end
+
+  private
+
+  def coordinate(x, y)
+    OpenStruct.new(x: x, y: y)
   end
 end
