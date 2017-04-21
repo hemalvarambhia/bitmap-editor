@@ -45,6 +45,7 @@ class BitmapEditor
     from_y, to_y = args[1..2].map(&:to_i).map(&:abs).sort
     x = args[0].to_i
     line = from_y.upto(to_y).map { |y| OpenStruct.new(x: x, y: y) }
-    @image.paint_line(line, 'X')
+    colour = args[3]
+    @image.paint_line(line, colour)
   end
 end
