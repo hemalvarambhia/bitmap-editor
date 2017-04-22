@@ -1,6 +1,7 @@
-require 'ostruct'
 require 'spec_helper'
+require 'geometry/coordinates'
 describe 'Painting a pixel' do
+  include Geometry::Coordinates
   let(:bitmap_image) { double(:image) }
   let(:bitmap_editor) { BitmapEditor.new(bitmap_image) }
 
@@ -90,11 +91,5 @@ describe 'Painting a pixel' do
 
   describe 'L 0 150 A' do
     it "paints co-ordinate (1 150) 'A'"
-  end
-
-  private
-
-  def coordinate(x, y)
-    OpenStruct.new(x: x, y: y)
   end
 end

@@ -1,4 +1,7 @@
+require 'geometry/coordinates'
 class BitmapEditor
+  include Geometry::Coordinates
+  
   def initialize(image)
     @image = image
   end
@@ -47,9 +50,5 @@ class BitmapEditor
     line = from_y.upto(to_y).map { |y| coordinate(x, y) }
     colour = args[3]
     @image.paint_line(line, colour)
-  end
-
-  def coordinate(x, y)
-    OpenStruct.new(x: x, y: y)
   end
 end

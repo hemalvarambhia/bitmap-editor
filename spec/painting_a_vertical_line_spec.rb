@@ -1,7 +1,7 @@
-require 'ostruct'
 require 'spec_helper'
-
+require 'geometry/coordinates'
 describe 'Painting a vertical line' do
+  include Geometry::Coordinates
   let(:image) { double(:image) }
   let(:bitmap_editor) { BitmapEditor.new(image) }
 
@@ -58,11 +58,5 @@ describe 'Painting a vertical line' do
 
       bitmap_editor.run('V 2 4 7 Y')
     end
-  end
-
-  private
-
-  def coordinate(x, y)
-    OpenStruct.new(x: x, y: y)
   end
 end

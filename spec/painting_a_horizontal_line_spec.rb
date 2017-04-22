@@ -1,6 +1,7 @@
-require 'ostruct'
 require 'spec_helper'
+require 'geometry/coordinates'
 describe 'Painting a horizontal line' do
+  include Geometry::Coordinates
   let(:image) { double(:image) }
   let(:bitmap_editor) { BitmapEditor.new(image) }
   
@@ -122,11 +123,5 @@ describe 'Painting a horizontal line' do
 
   describe 'H 1 2 3 4' do
     it 'paints a horizontal line the colour 4'
-  end
-
-  private
-
-  def coordinate(x, y)
-    OpenStruct.new(x: x, y: y)
   end
 end
