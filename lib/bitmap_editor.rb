@@ -29,7 +29,7 @@ class BitmapEditor
     x = args[0].to_i.abs
     y = args[1].to_i.abs
     colour = args[2].upcase
-    point = OpenStruct.new(x: x, y: y)
+    point = coordinate(x, y)
     @image.paint_pixel(coordinate: point, colour: colour)
   end
 
@@ -37,15 +37,19 @@ class BitmapEditor
     from_x, to_x = args[0..1].map(&:to_i).map(&:abs).sort
     y = args[2].to_i.abs
     colour = args[3]
-    line = from_x.upto(to_x).map { |x| OpenStruct.new(x: x, y: y) }
+    line = from_x.upto(to_x).map { |x| coordinate(x, y) }
     @image.paint_line(line, colour)
   end
 
   def paint_vertical_line(args)
     from_y, to_y = args[1..2].map(&:to_i).map(&:abs).sort
     x = args[0].to_i
-    line = from_y.upto(to_y).map { |y| OpenStruct.new(x: x, y: y) }
+    line = from_y.upto(to_y).map { |y| coordinate(x, y) }
     colour = args[3]
     @image.paint_line(line, colour)
+  end
+
+  def coordinate(x, y)
+    OpenStruct.new(x: x, y: y)
   end
 end
