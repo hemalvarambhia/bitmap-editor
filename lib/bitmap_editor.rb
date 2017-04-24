@@ -46,7 +46,7 @@ class BitmapEditor
 
   def paint_vertical_line(args)
     y_1, y_2 = args[1..2].map(&:to_i).map(&:abs).sort
-    x = args[0].to_i
+    x = args[0].to_i.abs
     line = y_1.upto(y_2).map { |y| coordinate(x, y) }
     colour = args[3]
     @image.paint_line(line, colour)
