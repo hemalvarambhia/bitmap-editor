@@ -37,17 +37,17 @@ class BitmapEditor
   end
 
   def paint_horizontal_line(args)
-    from_x, to_x = args[0..1].map(&:to_i).map(&:abs).sort
+    x_1, x_2 = args[0..1].map(&:to_i).map(&:abs).sort
     y = args[2].to_i.abs
     colour = args[3]
-    line = from_x.upto(to_x).map { |x| coordinate(x, y) }
+    line = x_1.upto(x_2).map { |x| coordinate(x, y) }
     @image.paint_line(line, colour)
   end
 
   def paint_vertical_line(args)
-    from_y, to_y = args[1..2].map(&:to_i).map(&:abs).sort
+    y_1, y_2 = args[1..2].map(&:to_i).map(&:abs).sort
     x = args[0].to_i
-    line = from_y.upto(to_y).map { |y| coordinate(x, y) }
+    line = y_1.upto(y_2).map { |y| coordinate(x, y) }
     colour = args[3]
     @image.paint_line(line, colour)
   end
