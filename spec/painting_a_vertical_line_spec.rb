@@ -68,6 +68,14 @@ describe 'Painting a vertical line' do
     end
   end
 
+  describe 'v 5 2 3 i' do
+    it "paints a vertical line from (5, 2) to (5, 3) the colour 'i'" do
+      expect(image).to receive(:paint_line)
+
+      bitmap_editor.run('v 5 2 3 i')
+    end
+  end
+
   describe 'V -3 4 6 X' do
     it 'paints a vertical line from (3, 4) to (3, 6)' do
       line = [
