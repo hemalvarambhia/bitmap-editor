@@ -94,4 +94,13 @@ describe 'Painting a vertical line' do
       bitmap_editor.run('V 7 -4 5 D')
     end
   end
+
+  describe 'V 1 4 -5 E' do
+    it 'paints a vertical line from (1, 4) to (1, 5)' do
+      line = [ coordinate(1, 4), coordinate(1, 5) ]
+      expect(image).to receive(:paint_line).with(line, any_args)
+
+      bitmap_editor.run('V 1 4 -5 E')
+    end
+  end
 end
