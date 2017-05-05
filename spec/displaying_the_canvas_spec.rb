@@ -7,7 +7,7 @@ describe 'Displaying the image' do
 
   describe 'S' do
     it 'displays the image to an output' do
-      expect(image).to receive(:display).with output_stream
+      expect(output_stream).to receive(:display).with image
 
       bitmap_editor.run 'S'
     end
@@ -15,7 +15,7 @@ describe 'Displaying the image' do
 
   describe 's' do
     it 'displays the image to an output' do
-      expect(image).to receive(:display).with output_stream
+      expect(output_stream).to receive(:display).with image
 
       bitmap_editor.run 's'
     end

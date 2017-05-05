@@ -19,7 +19,7 @@ class BitmapEditor
     when 'V'
       paint_vertical_line(args)
     when 'S'
-      @image.display @output_stream
+      @output_stream.display @image
     end  
   end
 
