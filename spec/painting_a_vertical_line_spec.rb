@@ -103,4 +103,12 @@ describe 'Painting a vertical line' do
       bitmap_editor.run('V 1 4 -5 E')
     end
   end
+
+  describe 'V 0 1 19 O' do
+    it 'paints a vertial line from (0, 1) to (0, 19) the colour O'
+  end
+
+  describe 'V 1 1 251 P' do
+    it 'paints a vertical line from (0, 1) to (0, 19) the colour P'
+  end
 end
