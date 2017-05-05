@@ -2,8 +2,9 @@ require 'geometry/coordinates'
 class BitmapEditor
   include Geometry::Coordinates
   
-  def initialize(image)
+  def initialize(image, output_stream = nil)
     @image = image
+    @output_stream = output_stream
   end
 
   def run(command)
@@ -17,6 +18,8 @@ class BitmapEditor
       paint_horizontal_line(args)
     when 'V'
       paint_vertical_line(args)
+    when 'S'
+      @image.display @output_stream
     end  
   end
 
