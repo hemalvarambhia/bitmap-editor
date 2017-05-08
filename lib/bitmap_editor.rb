@@ -20,6 +20,8 @@ class BitmapEditor
       paint_vertical_line(args)
     when 'S'
       @display.show @image
+    when 'C'
+      @image.clear
     end
   end
 
