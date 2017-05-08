@@ -3,7 +3,7 @@ require 'geometry/coordinates'
 describe 'Painting a pixel' do
   include Geometry::Coordinates
   let(:bitmap_image) { double(:image) }
-  let(:bitmap_editor) { BitmapEditor.new(bitmap_image) }
+  let(:bitmap_editor) { BitmapEditor.new(bitmap_image, nil) }
 
   describe 'L 1 1 A' do
     it "paints co-ordinate (1, 1) the colour 'A'" do

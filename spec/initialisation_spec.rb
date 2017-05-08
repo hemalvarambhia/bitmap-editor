@@ -1,7 +1,7 @@
 require 'spec_helper'
 describe 'Initialisation command' do
   let(:image) { double(:image) }
-  let(:bitmap_editor) { BitmapEditor.new(image) }
+  let(:bitmap_editor) { BitmapEditor.new(image, nil) }
 
   describe 'I 0 0' do
     it 'creates a 0 x 0 image with all pixels painted white' do

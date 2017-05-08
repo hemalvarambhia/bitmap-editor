@@ -6,7 +6,7 @@ describe 'Clearing an image' do
       image = double(:image)
       expect(image).to receive(:clear)
       
-      bitmap_editor = BitmapEditor.new(image)
+      bitmap_editor = BitmapEditor.new(image, nil)
       bitmap_editor.run 'C'
     end
   end
@@ -16,7 +16,7 @@ describe 'Clearing an image' do
       image = double(:image)
       expect(image).to receive(:clear)
       
-      bitmap_editor = BitmapEditor.new(image)
+      bitmap_editor = BitmapEditor.new(image, nil)
       bitmap_editor.run 'c'
     end
   end

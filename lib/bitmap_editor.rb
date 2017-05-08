@@ -2,7 +2,7 @@ require 'geometry/coordinates'
 class BitmapEditor
   include Geometry::Coordinates
   
-  def initialize(image, display = nil)
+  def initialize(image, display)
     @image = image
     @display = display
   end

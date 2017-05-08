@@ -3,7 +3,7 @@ require 'geometry/coordinates'
 describe 'Painting a horizontal line' do
   include Geometry::Coordinates
   let(:image) { double(:image) }
-  let(:bitmap_editor) { BitmapEditor.new(image) }
+  let(:bitmap_editor) { BitmapEditor.new(image, nil) }
   
   describe 'H 1 1 1 I' do
     it "paints a pixel at (1, 1) the colour 'I'" do
