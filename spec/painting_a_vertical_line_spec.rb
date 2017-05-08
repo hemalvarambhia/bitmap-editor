@@ -111,4 +111,8 @@ describe 'Painting a vertical line' do
   describe 'V 1 1 251 P' do
     it 'paints a vertical line from (0, 1) to (0, 19) the colour P'
   end
+
+  describe 'V 5 6 7 8' do
+    it 'paints a vertical line the colour 8'
+  end
 end
