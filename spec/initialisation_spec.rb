@@ -58,4 +58,8 @@ describe 'Initialisation command' do
       bitmap_editor.run('i 4 4')
     end
   end
+
+  describe 'I 270 270' do
+    it 'creates a 270 x 270 image with all pixels painted white'
+  end
 end
