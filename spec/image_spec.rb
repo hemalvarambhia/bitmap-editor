@@ -1,10 +1,9 @@
 class Image
   attr_reader :width, :height, :pixels
   def create(dimensions)
-    @width = dimensions[:width]
-    @height = dimensions[:height]
-    @pixels = Array.new(@height) { 'O' * @width }
+    @pixels = Array.new(dimensions[:height]) { 'O' * dimensions[:width] }
     @width = @pixels[0].size
+    @height = @pixels.size
   end
 end
 
