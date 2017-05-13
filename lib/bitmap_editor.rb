@@ -38,7 +38,7 @@ class BitmapEditor
     y = args[1].to_i.abs
     colour = args[2].upcase
     point = coordinate(x, y)
-    @image.paint_pixel(coordinate: point, colour: colour)
+    @image.paint_pixel(point, colour)
   end
 
   def paint_horizontal_line(args)
