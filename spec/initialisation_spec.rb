@@ -59,7 +59,15 @@ describe 'Initialisation command' do
     end
   end
 
+  describe 'I 0 0' do
+    it 'creates a 0 x 0 image with all pixels painted white'
+  end
+
   describe 'I 270 270' do
     it 'creates a 270 x 270 image with all pixels painted white'
+  end
+
+  describe 'I 1' do
+    it 'raises an invalid initialisation error'
   end
 end
