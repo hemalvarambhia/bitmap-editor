@@ -3,27 +3,27 @@ describe 'Initialisation command' do
   let(:image) { double(:image) }
   let(:bitmap_editor) { BitmapEditor.new(image, nil) }
 
-  describe 'I 0 0' do
-    it 'creates a 0 x 0 image with all pixels painted white' do
-      expect(image).to receive(:create).with(width: 0, height: 0)
-
-      bitmap_editor.run('I 0 0')
+  describe 'I 1 1' do
+    it 'creates a 1 x 1 image with all pixels painted white' do
+      expect(image).to receive(:create).with(width: 1, height: 1)
+      
+      bitmap_editor.run('I 1 1')
     end
   end
 
-  describe 'I 1 0' do
-    it 'creates a 1 x 0 image with all pixels painted white' do
-      expect(image).to receive(:create).with(width: 1, height: 0)
+  describe 'I 2 1' do
+    it 'creates a 2 x 1 image with all pixels painted white' do
+      expect(image).to receive(:create).with(width: 2, height: 1)
 
-      bitmap_editor.run('I 1 0')
+      bitmap_editor.run('I 2 1')
     end
   end
 
-  describe 'I 0 1' do
-    it 'creates a 0 x 1 image with all pixels painted white' do
-      expect(image).to receive(:create).with(width: 0, height: 1)
+  describe 'I 3 4' do
+    it 'creates a 3 x 4 image with all pixels painted white' do
+      expect(image).to receive(:create).with(width: 3, height: 4)
 
-      bitmap_editor.run('I 0 1')
+      bitmap_editor.run('I 3 4')
     end
   end
 
