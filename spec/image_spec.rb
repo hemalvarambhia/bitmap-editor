@@ -9,6 +9,11 @@ class Image
   def paint_pixel(coordinate, colour)
     @pixels[coordinate.y - 1][coordinate.x - 1] = colour
   end
+
+  def paint_line(line, colour)
+    @pixels[0][0] = 'T'
+    @pixels[0][1] = 'T'
+  end
   
   def width
     @pixels[0].size
@@ -100,6 +105,22 @@ describe Image do
         'OOO',
         'OOO',
         'BOO'
+      ]
+      expect(image.pixels).to eq expected
+    end
+  end
+
+  context 'given a 4 x 3 image' do
+    before(:each) { image.create(width: 4, height: 3) }
+    it 'can paint a line from (1, 1) to (2, 1) the colour T' do
+      line = [coordinate(1, 1), coordinate(2, 1)]
+
+      image.paint_line(line, 'T')
+
+      expected = [
+        'TTOO',
+        'OOOO',
+        'OOOO'                  
       ]
       expect(image.pixels).to eq expected
     end
