@@ -7,7 +7,7 @@ class Image
   end
 
   def paint_pixel(coordinate, colour)
-    @pixels[0][1] = 'A'
+    @pixels[coordinate.y - 1][coordinate.x - 1] = 'A'
   end
   
   def width
@@ -71,10 +71,15 @@ describe Image do
   context 'given a 3 x 3 image' do
     before(:each) { image.create(width: 3, height: 3) }
     
-    it "paints a pixel the colour 'A' at (1, 2) on a 3 x 3 image" do
-      image.paint_pixel(coordinate(1, 2), 'A')
-      
-      expect(image.pixels).to eq ['OAO','OOO', 'OOO']
+    it "paints a pixel the colour 'A' at (2, 1)" do
+      image.paint_pixel(coordinate(2, 1), 'A')
+
+      expected = [
+        'OAO',
+        'OOO',
+        'OOO'
+      ]
+      expect(image.pixels).to eq expected
     end
   end
 end
