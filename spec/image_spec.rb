@@ -7,7 +7,7 @@ class Image
   end
 
   def paint_pixel(coordinate, colour)
-    @pixels[coordinate.y - 1][coordinate.x - 1] = 'A'
+    @pixels[coordinate.y - 1][coordinate.x - 1] = colour
   end
   
   def width
@@ -89,6 +89,17 @@ describe Image do
         'OOO',
         'OOO',
         'OOA'
+      ]
+      expect(image.pixels).to eq expected
+    end
+
+    it "paints a pixel the colour 'B' at (1, 3)" do
+      image.paint_pixel(coordinate(1, 3), 'B')
+
+      expected = [
+        'OOO',
+        'OOO',
+        'BOO'
       ]
       expect(image.pixels).to eq expected
     end
