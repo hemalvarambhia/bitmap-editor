@@ -81,5 +81,16 @@ describe Image do
       ]
       expect(image.pixels).to eq expected
     end
+
+    it "paints a pixel the colour 'A' at (3, 3)" do
+      image.paint_pixel(coordinate(3, 3), 'A')
+
+      expected = [
+        'OOO',
+        'OOO',
+        'OOA'
+      ]
+      expect(image.pixels).to eq expected
+    end
   end
 end
