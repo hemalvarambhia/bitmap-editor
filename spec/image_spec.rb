@@ -112,7 +112,7 @@ describe Image do
 
   context 'given a 4 x 3 image' do
     before(:each) { image.create(width: 4, height: 3) }
-    it 'can paint a line from (1, 1) to (2, 1) the colour T' do
+    it 'paints a line from (1, 1) to (2, 1) the colour T' do
       line = [coordinate(1, 1), coordinate(2, 1)]
 
       image.paint_line(line, 'T')
