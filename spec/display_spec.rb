@@ -16,4 +16,12 @@ describe 'Displaying an image' do
 
     Display.new(terminal).show(image)
   end
+
+  it 'displays any image' do
+    image = double(:image, to_s: "OO\nOO\nOO\nOO")
+    terminal = double(:terminal)
+    expect(terminal).to receive(:puts).with "OO\nOO\nOO\nOO" 
+
+    Display.new(terminal).show(image)
+  end
 end
