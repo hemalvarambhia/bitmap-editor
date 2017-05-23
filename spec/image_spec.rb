@@ -11,9 +11,7 @@ class Image
   end
 
   def paint_line(line, colour)
-    line.each do |coordinate|
-      @pixels[coordinate.y - 1][coordinate.x - 1] = 'T'
-    end
+    line.each { |coordinate| paint_pixel(coordinate, colour) }
   end
   
   def width
@@ -148,6 +146,19 @@ describe Image do
         'TOOO',
         'TOOO',
         'TOOO'                  
+      ]
+      expect(image.pixels).to eq expected
+    end
+
+    it 'paints a line from (2, 1) to (2, 3) the colour A' do
+      line = [ coordinate(2, 1), coordinate(2, 2), coordinate(2, 3) ]
+
+      image.paint_line(line, 'A')
+
+      expected = [
+        'OAOO',
+        'OAOO',
+        'OAOO'                  
       ]
       expect(image.pixels).to eq expected
     end
