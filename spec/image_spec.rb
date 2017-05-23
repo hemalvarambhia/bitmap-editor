@@ -169,14 +169,33 @@ describe Image do
   end
 
   context 'given a 3 x 4 image with a line painted T' do
-    it 'clears the image' do
+    before(:each) do
       image.create(width: 3, height: 4)
       line = [ coordinate(1, 1), coordinate(2, 1), coordinate(3, 1) ]
       image.paint_line(line, 'T')
-      
+    end
+
+    it 'clears the image' do
       image.clear
 
       white_image = [ 'OOO', 'OOO', 'OOO', 'OOO' ]
+      expect(image.pixels).to eq white_image
+    end
+  end
+
+  context 'given a 4 x 4 image with a line painted P' do
+    before(:each) do
+      image.create(width: 4, height: 4)
+      line = [ 
+        coordinate(1, 1), coordinate(2, 1), coordinate(3, 1), coordinate(4, 1)
+      ]
+      image.paint_line(line, 'P')
+    end
+
+    it 'clears the image' do
+      image.clear
+
+      white_image = [ 'OOOO', 'OOOO', 'OOOO', 'OOOO' ]
       expect(image.pixels).to eq white_image
     end
   end
