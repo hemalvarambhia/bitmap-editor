@@ -13,6 +13,10 @@ class Image
   def paint_line(line, colour)
     line.each { |coordinate| paint_pixel(coordinate, colour) }
   end
+
+  def clear
+    @pixels = Array.new(height) { 'O' * width }
+  end
   
   def width
     @pixels[0].size
@@ -161,6 +165,19 @@ describe Image do
         'OAOO'                  
       ]
       expect(image.pixels).to eq expected
+    end
+  end
+
+  context 'given a 3 x 4 image with a line painted T' do
+    it 'clears the image' do
+      image.create(width: 3, height: 4)
+      line = [ coordinate(1, 1), coordinate(2, 1), coordinate(3, 1) ]
+      image.paint_line(line, 'T')
+      
+      image.clear
+
+      white_image = [ 'OOO', 'OOO', 'OOO', 'OOO' ]
+      expect(image.pixels).to eq white_image
     end
   end
 end
