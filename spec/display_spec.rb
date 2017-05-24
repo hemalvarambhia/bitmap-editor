@@ -5,23 +5,25 @@ describe 'Displaying an image' do
     end
 
     def show(image)
-      @terminal.puts(image.to_s)
+      @terminal.puts(image)
     end
   end
 
+  let(:terminal) { StringIO.new }
+  let(:display) { Display.new(terminal) }
+
   it 'displays the image' do
     image = double(:image, to_s: "OOO\nOOO\nOOO")
-    terminal = StringIO.new
 
-    Display.new(terminal).show(image)
+    display.show(image)
 
     expect(terminal.string).to eq "OOO\nOOO\nOOO\n"
   end
 
   it 'displays any image' do
     image = double(:image, to_s: "OO\nOO\nOO\nOO")
-    terminal = StringIO.new
-    Display.new(terminal).show(image)
+
+    display.show(image)
 
     expect(terminal.string).to eq "OO\nOO\nOO\nOO\n"
   end
