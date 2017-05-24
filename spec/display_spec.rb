@@ -11,17 +11,18 @@ describe 'Displaying an image' do
 
   it 'displays the image' do
     image = double(:image, to_s: "OOO\nOOO\nOOO")
-    terminal = double(:terminal)
-    expect(terminal).to receive(:puts).with "OOO\nOOO\nOOO" 
+    terminal = StringIO.new
 
     Display.new(terminal).show(image)
+
+    expect(terminal.string).to eq "OOO\nOOO\nOOO\n"
   end
 
   it 'displays any image' do
     image = double(:image, to_s: "OO\nOO\nOO\nOO")
-    terminal = double(:terminal)
-    expect(terminal).to receive(:puts).with "OO\nOO\nOO\nOO" 
-
+    terminal = StringIO.new
     Display.new(terminal).show(image)
+
+    expect(terminal.string).to eq "OO\nOO\nOO\nOO\n"
   end
 end
