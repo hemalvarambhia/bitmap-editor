@@ -28,6 +28,7 @@ class Image
 
   def to_s
     "OO\nOO"
+    @pixels.join("\n")
   end
 end
 
@@ -205,10 +206,19 @@ describe Image do
   end
 
   describe '#to_s' do
-    it 'generates the image as a string' do
+    it 'generates a string representation of an image' do
       image.create(width: 2, height: 2)
 
       expect(image.to_s).to eq "OO\nOO"
+    end
+
+    it 'generates a string representation of any image' do
+      image.create(width: 4, height: 3)
+      image.paint_pixel(coordinate(1, 1), 'T')
+      image.paint_pixel(coordinate(2, 2), 'T')
+      image.paint_pixel(coordinate(3, 3), 'T')
+
+      expect(image.to_s).to eq "TOOO\nOTOO\nOOTO"
     end
   end
 end
