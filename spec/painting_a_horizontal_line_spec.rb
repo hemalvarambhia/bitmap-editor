@@ -113,6 +113,26 @@ describe 'Painting a horizontal line' do
     end
   end 
 
+  describe 'H' do
+    it 'raises an invalid command error'
+  end
+
+  describe 'H 1' do
+    it 'raises an invalid command error'
+  end
+
+  describe 'H 3 4' do
+    it 'raises an invalid command error'
+  end
+
+  describe 'H 2 4 10' do
+    it 'raises an invalid command error'
+  end
+
+  describe 'H 6 7 10 1' do
+    it 'raises an invalid command error'
+  end
+
   describe 'H 1 251 4 A' do
     it 'paints a horizontal line from (1, 4) to (251, 4)'
   end
