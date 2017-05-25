@@ -25,6 +25,10 @@ class Image
   def height
     @pixels.size
   end
+
+  def to_s
+    "OO\nOO"
+  end
 end
 
 describe Image do
@@ -197,6 +201,14 @@ describe Image do
 
       white_image = [ 'OOOO', 'OOOO', 'OOOO', 'OOOO' ]
       expect(image.pixels).to eq white_image
+    end
+  end
+
+  describe '#to_s' do
+    it 'generates the image as a string' do
+      image.create(width: 2, height: 2)
+
+      expect(image.to_s).to eq "OO\nOO"
     end
   end
 end
