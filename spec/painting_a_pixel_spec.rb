@@ -85,6 +85,18 @@ describe 'Painting a pixel' do
     end
   end
 
+  describe 'L 1' do
+    it 'raises an invalid command error'
+  end
+
+  describe 'L 3 4' do
+    it 'raises an invalid command error'
+  end
+
+  describe 'painting a pixel not contained in the image' do
+    it 'does nothing'
+  end
+
   describe 'L 2 251 A' do
     it "paints co-ordinate (2 250) 'A'"
   end
