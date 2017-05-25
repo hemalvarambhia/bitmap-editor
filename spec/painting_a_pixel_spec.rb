@@ -98,10 +98,10 @@ describe 'Painting a pixel' do
   end
 
   describe 'L 2 251 A' do
-    it "paints co-ordinate (2 250) 'A'"
+    it 'raises an invalid command error'
   end
 
   describe 'L 0 150 A' do
-    it "paints co-ordinate (1 150) 'A'"
+    it 'raises an invalid command error'
   end
 end
