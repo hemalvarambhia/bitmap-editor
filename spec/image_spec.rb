@@ -27,7 +27,6 @@ class Image
   end
 
   def to_s
-    "OO\nOO"
     @pixels.join("\n")
   end
 end
