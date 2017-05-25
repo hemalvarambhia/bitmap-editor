@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 class Image
-  attr_reader :pixels
   def create(dimensions)
     @pixels = Array.new(dimensions[:height]) { 'O' * dimensions[:width] }
   end
@@ -46,7 +45,7 @@ describe Image do
     it 'is coloured white' do
       image.create(width: 1, height: 1)
 
-      expect(image.pixels).to eq ['O']
+      expect(image.to_s).to eq 'O'
     end
   end
 
@@ -61,7 +60,7 @@ describe Image do
     it 'is coloured white' do
       image.create(width: 2, height: 1)
 
-      expect(image.pixels).to eq [ 'OO' ]
+      expect(image.to_s).to eq 'OO'
     end
   end
 
@@ -76,7 +75,7 @@ describe Image do
     it 'is painted white' do
       image.create(width: 2, height: 3)
 
-      expect(image.pixels).to eq ['OO', 'OO', 'OO']
+      expect(image.to_s).to eq "OO\nOO\nOO"
     end
   end
 
@@ -86,34 +85,22 @@ describe Image do
     it "paints a pixel the colour 'A' at (2, 1)" do
       image.paint_pixel(coordinate(2, 1), 'A')
 
-      expected = [
-        'OAO',
-        'OOO',
-        'OOO'
-      ]
-      expect(image.pixels).to eq expected
+      expected = "OAO\nOOO\nOOO"
+      expect(image.to_s).to eq expected
     end
 
     it "paints a pixel the colour 'A' at (3, 3)" do
       image.paint_pixel(coordinate(3, 3), 'A')
 
-      expected = [
-        'OOO',
-        'OOO',
-        'OOA'
-      ]
-      expect(image.pixels).to eq expected
+      expected = "OOO\nOOO\nOOA"
+      expect(image.to_s).to eq expected
     end
 
     it "paints a pixel the colour 'B' at (1, 3)" do
       image.paint_pixel(coordinate(1, 3), 'B')
 
-      expected = [
-        'OOO',
-        'OOO',
-        'BOO'
-      ]
-      expect(image.pixels).to eq expected
+      expected = "OOO\nOOO\nBOO"
+      expect(image.to_s).to eq expected
     end
   end
 
@@ -124,12 +111,8 @@ describe Image do
 
       image.paint_line(line, 'T')
 
-      expected = [
-        'TTOO',
-        'OOOO',
-        'OOOO'                  
-      ]
-      expect(image.pixels).to eq expected
+      expected = "TTOO\nOOOO\nOOOO"
+      expect(image.to_s).to eq expected
     end
 
     it 'paints a line from (1, 1) to (3, 1) the colour T' do
@@ -137,12 +120,8 @@ describe Image do
 
       image.paint_line(line, 'T')
 
-      expected = [
-        'TTTO',
-        'OOOO',
-        'OOOO'                  
-      ]
-      expect(image.pixels).to eq expected
+      expected = "TTTO\nOOOO\nOOOO"
+      expect(image.to_s).to eq expected
     end
 
     it 'paints a line from (1, 1) to (1, 3) the colour T' do
@@ -150,12 +129,8 @@ describe Image do
 
       image.paint_line(line, 'T')
 
-      expected = [
-        'TOOO',
-        'TOOO',
-        'TOOO'                  
-      ]
-      expect(image.pixels).to eq expected
+      expected = "TOOO\nTOOO\nTOOO"                  
+      expect(image.to_s).to eq expected
     end
 
     it 'paints a line from (2, 1) to (2, 3) the colour A' do
@@ -163,12 +138,8 @@ describe Image do
 
       image.paint_line(line, 'A')
 
-      expected = [
-        'OAOO',
-        'OAOO',
-        'OAOO'                  
-      ]
-      expect(image.pixels).to eq expected
+      expected = "OAOO\nOAOO\nOAOO"    
+      expect(image.to_s).to eq expected
     end
   end
 
@@ -182,8 +153,8 @@ describe Image do
     it 'clears the image' do
       image.clear
 
-      white_image = [ 'OOO', 'OOO', 'OOO', 'OOO' ]
-      expect(image.pixels).to eq white_image
+      white_image = "OOO\nOOO\nOOO\nOOO"
+      expect(image.to_s).to eq white_image
     end
   end
 
@@ -199,8 +170,8 @@ describe Image do
     it 'clears the image' do
       image.clear
 
-      white_image = [ 'OOOO', 'OOOO', 'OOOO', 'OOOO' ]
-      expect(image.pixels).to eq white_image
+      white_image = "OOOO\nOOOO\nOOOO\nOOOO"
+      expect(image.to_s).to eq white_image
     end
   end
 
