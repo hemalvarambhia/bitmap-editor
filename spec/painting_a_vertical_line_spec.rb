@@ -104,15 +104,31 @@ describe 'Painting a vertical line' do
     end
   end
 
+  describe 'V' do
+    it 'raises an invalid command error'
+  end
+
+  describe 'V 1' do
+    it 'raises an invalid command error'
+  end
+
+  describe 'V 7 1' do
+    it 'raises an invalid command error'
+  end
+
+  describe 'V 2 1 2' do
+    it 'raises an invalid command error'
+  end
+
   describe 'V 0 1 19 O' do
-    it 'paints a vertial line from (0, 1) to (0, 19) the colour O'
+    it 'raises an invalid command error'
   end
 
   describe 'V 1 1 251 P' do
-    it 'paints a vertical line from (0, 1) to (0, 19) the colour P'
+    it 'raises an invalid command error'
   end
 
   describe 'V 5 6 7 8' do
-    it 'paints a vertical line the colour 8'
+    it 'raises an invalid command error'
   end
 end
