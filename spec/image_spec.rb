@@ -120,7 +120,6 @@ describe Image do
       image.paint_line(line, 'T')
 
       expect(image.to_s).to eq "TTTO\nOOOO\nOOOO"
-
     end
 
     it 'paints a line from (1, 1) to (1, 3) the colour T' do
@@ -128,8 +127,7 @@ describe Image do
 
       image.paint_line(line, 'T')
 
-      expect(image.to_s).to eq "TOOO\nTOOO\nTOOO"                  
-
+      expect(image.to_s).to eq "TOOO\nTOOO\nTOOO"
     end
 
     it 'paints a line from (2, 1) to (2, 3) the colour A' do
@@ -137,8 +135,7 @@ describe Image do
 
       image.paint_line(line, 'A')
 
-      expect(image.to_s).to eq "OAOO\nOAOO\nOAOO"    
-
+      expect(image.to_s).to eq "OAOO\nOAOO\nOAOO"
     end
   end
 
