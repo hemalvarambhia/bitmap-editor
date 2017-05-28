@@ -44,15 +44,15 @@ class BitmapEditor
   def paint_horizontal_line(args)
     x_1, x_2 = args[0..1].map(&:to_i).map(&:abs).sort
     y = args[2].to_i.abs
+    line = horizontal_line(from: coordinate(x_1, y), to: coordinate(x_2, y))
     colour = args[3]
-    line = x_1.upto(x_2).map { |x| coordinate(x, y) }
     @image.paint_line(line, colour)
   end
 
   def paint_vertical_line(args)
     y_1, y_2 = args[1..2].map(&:to_i).map(&:abs).sort
     x = args[0].to_i.abs
-    line = y_1.upto(y_2).map { |y| coordinate(x, y) }
+    line = vertical_line(from: coordinate(x, y_1), to: coordinate(x, y_2))
     colour = args[3]
     @image.paint_line(line, colour)
   end
