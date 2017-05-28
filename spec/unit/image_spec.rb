@@ -1,5 +1,4 @@
 require 'spec_helper'
-
 class Image
   def create(dimensions)
     @pixels = Array.new(dimensions[:height]) { 'O' * dimensions[:width] }

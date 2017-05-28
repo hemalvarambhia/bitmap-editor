@@ -8,8 +8,7 @@ describe 'Painting a pixel' do
   describe 'L 1 1 A' do
     it "paints co-ordinate (1, 1) the colour 'A'" do
       coordinate = coordinate(1, 1)
-      expect(bitmap_image)
-        .to receive(:paint_pixel).with(coordinate, 'A')
+      expect(bitmap_image).to receive(:paint_pixel).with(coordinate, 'A')
 
       bitmap_editor.run('L 1 1 A')
     end
@@ -18,8 +17,7 @@ describe 'Painting a pixel' do
   describe 'L 1 2 A' do
     it "paints co-ordinate (1, 2) the colour 'A'" do
       coordinate = coordinate(1, 2)
-      expect(bitmap_image)
-        .to receive(:paint_pixel).with(coordinate, 'A')
+      expect(bitmap_image).to receive(:paint_pixel).with(coordinate, 'A')
 
       bitmap_editor.run('L 1 2 A')
     end
@@ -28,8 +26,7 @@ describe 'Painting a pixel' do
   describe 'L 3 5 A' do
     it "paints co-ordinate (3, 5) the colour 'A'" do
       coordinate = coordinate(3, 5)
-      expect(bitmap_image)
-        .to receive(:paint_pixel).with(coordinate, 'A')
+      expect(bitmap_image).to receive(:paint_pixel).with(coordinate, 'A')
 
       bitmap_editor.run('L 3 5 A')
     end
@@ -38,8 +35,7 @@ describe 'Painting a pixel' do
   describe 'L 6 7 X' do
     it "paints co-ordinate (6, 7) the colour 'X'" do
       coordinate = coordinate(6, 7)
-      expect(bitmap_image)
-        .to receive(:paint_pixel).with(coordinate, 'X')
+      expect(bitmap_image).to receive(:paint_pixel).with(coordinate, 'X')
 
       bitmap_editor.run('L 6 7 X')
     end
@@ -48,8 +44,7 @@ describe 'Painting a pixel' do
   describe 'L 3 1 a' do
     it "paints co-ordinate (3, 1) the colour 'A'" do
       coordinate = coordinate(3, 1)
-      expect(bitmap_image)
-        .to receive(:paint_pixel).with(coordinate, 'A')
+      expect(bitmap_image).to receive(:paint_pixel).with(coordinate, 'A')
 
       bitmap_editor.run('L 3 1 a') 
     end
@@ -58,8 +53,7 @@ describe 'Painting a pixel' do
   describe 'L -3 8 R' do
     it "paints co-ordinate (3, 8) the colour 'R'" do
       coordinate = coordinate(3, 8)
-      expect(bitmap_image)
-        .to receive(:paint_pixel).with(coordinate, any_args)
+      expect(bitmap_image).to receive(:paint_pixel).with(coordinate, any_args)
 
       bitmap_editor.run('L -3 8 R') 
     end
@@ -68,8 +62,7 @@ describe 'Painting a pixel' do
   describe 'L 10 -11 Z' do
     it "paints co-ordinate (10, 11) the colour 'Z'" do
       coordinate = coordinate(10, 11)
-      expect(bitmap_image)
-        .to receive(:paint_pixel).with(coordinate, any_args)
+      expect(bitmap_image).to receive(:paint_pixel).with(coordinate, any_args)
 
       bitmap_editor.run('L 10 -11 Z') 
     end
@@ -78,8 +71,7 @@ describe 'Painting a pixel' do
   describe 'l 4 5 z' do
     it "paints co-ordinate (4, 5) the colour 'Z" do
       coordinate = coordinate(4, 5)
-      expect(bitmap_image)
-        .to receive(:paint_pixel).with(coordinate, 'Z')
+      expect(bitmap_image).to receive(:paint_pixel).with(coordinate, 'Z')
 
       bitmap_editor.run('l 4 5 z')
     end
