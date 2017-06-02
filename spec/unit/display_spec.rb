@@ -1,14 +1,5 @@
+require 'display'
 describe 'Displaying an image' do
-  class Display
-    def initialize(terminal)
-      @terminal = terminal
-    end
-
-    def show(image)
-      @terminal.puts(image)
-    end
-  end
-
   let(:terminal) { StringIO.new }
   let(:display) { Display.new(terminal) }
 
