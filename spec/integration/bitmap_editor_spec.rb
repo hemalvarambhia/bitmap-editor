@@ -37,4 +37,14 @@ describe BitmapEditor do
     expected = "OOOOO\nOOOOO\nOWOOO\nOWOOO\nOWOOO\nOWOOO"
     expect(image.to_s).to eq expected
   end
+
+  it 'clears any pixel/line on a 5px x 6px white image' do
+    editor.run 'I 5 6'
+    editor.run 'V 2 3 6 W'
+
+    expect { editor.run 'C'}
+      .to change(image, :to_s)
+      .from("OOOOO\nOOOOO\nOWOOO\nOWOOO\nOWOOO\nOWOOO")
+      .to "OOOOO\nOOOOO\nOOOOO\nOOOOO\nOOOOO\nOOOOO"
+  end
 end
