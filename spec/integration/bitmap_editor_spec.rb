@@ -29,7 +29,7 @@ describe BitmapEditor do
     expect(image.to_s).to eq expected
   end
 
-  it 'paints a vertictal line on a 5px x 6px white image' do
+  it 'paints a vertical line on a 5px x 6px white image' do
     editor.run 'I 5 6'
 
     editor.run 'V 2 3 6 W'
