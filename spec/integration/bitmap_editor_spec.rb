@@ -28,4 +28,13 @@ describe BitmapEditor do
     expected = "OOOOO\nOOZZZ\nOOOOO\nOOOOO\nOOOOO\nOOOOO"
     expect(image.to_s).to eq expected
   end
+
+  it 'paints a vertictal line on a 5px x 6px white image' do
+    editor.run 'I 5 6'
+
+    editor.run 'V 2 3 6 W'
+
+    expected = "OOOOO\nOOOOO\nOWOOO\nOWOOO\nOWOOO\nOWOOO"
+    expect(image.to_s).to eq expected
+  end
 end
