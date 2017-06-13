@@ -5,7 +5,8 @@ require 'display'
 require 'bitmap_editor'
 image = Image.new
 display = Display.new(STDOUT)
+editor =   BitmapEditor.new(image, display)
 File.open(ARGV.first).each do |command|
   display.show command
-  BitmapEditor.new(image, display).run command
+  editor.run command
 end
