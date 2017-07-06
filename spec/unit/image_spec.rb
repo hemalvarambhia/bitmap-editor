@@ -72,10 +72,15 @@ describe Image do
 
       expect(image.to_s).to eq "OOO\nOOO\nBOO"
     end
+
+    context 'when the coordinate is outside of the image' do
+      it 'does not paint at that point'
+    end
   end
 
   context 'given a 4 x 3 image' do
     before(:each) { image.create(width: 4, height: 3) }
+    
     it 'paints a line from (1, 1) to (2, 1) the colour T' do
       line = [coordinate(1, 1), coordinate(2, 1)]
 
@@ -106,6 +111,10 @@ describe Image do
       image.paint_line(line, 'A')
 
       expect(image.to_s).to eq "OAOO\nOAOO\nOAOO"
+    end
+
+    context 'when the start and end co-ordinates are outside the image' do
+      it 'does not paint at those points'
     end
   end
 
