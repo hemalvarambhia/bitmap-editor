@@ -12,3 +12,11 @@ A strength is that, by using `OpenStruct` and using the `coordinates(x, y)` fact
 Originally, `BitmapEditor` handled ordering of the x- and y-coordinates when drawing horizontal and vertical lines correctly, which for means that knowledge of coordinates has leaked into `BitmapEditor`. They were moved to their respective draw line methods and now they are examples of symmetric methods.
 
 There is conditional (`case-when`) branching on the type of command which could be replaced by polymorphism. But without knowing how to treat the listed edge cases, and thereby a full contract for the polymorphic objects, it is better to wait.
+
+There is the possibility of having different kinds of displays and images. In the case of the Display#show message, we may use double
+dispatch to manage the fact the message receiver and argument are polymorphic.
+
+The architecture that has been derived here seems to look like MVC, where
+- the models are the `Image` and cartesian `coordinates`;
+- the view is the `Display` object; and
+- the controller is the `BitmapEditor`
